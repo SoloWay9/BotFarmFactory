@@ -15,14 +15,18 @@ URL_CARDS_LIST = "https://api.orbitonx.com/api/boost-cards"
 URL_MY_CARDS = "https://api.orbitonx.com/api/user-boost-cards"
 URL_COMBOS = "https://api.orbitonx.com/api/combos"
 URL_STOCKS = "https://api.orbitonx.com/api/general/stocks"
+URL_DAILY_REWARD = "https://api.orbitonx.com/api/users/daily-reward"
 
 MSG_AUTH_ERROR = "Ошибка аутентификации"
 MSG_STAKING_CLAIMED = "Собрал за стейкинг {rewardFromStacking}"
 MSG_STAKING_STARTED = "Начал стейкать"
 MSG_STAKING_TAP = "Натапал на стейкинг"
 MSG_TASK_CLAIMED = "Выполнил таску на {capacity} $RCT"
-MSG_WATCHED_AD = "Посмотрел рекламу ;) получил 10 $RCT"
+MSG_WATCHED_AD = "Посмотрел рекалму ;) получил 10 $RCT"
 MSG_BALANCE = "Текущий баланс: {balance}"
+MSG_DAILY_REWARD_CLAIMED = "Ежедневная награда получена. Новый баланс: {balance}"
+MSG_DAILY_REWARD_ERROR = "Ошибка при получении ежедневной награды"
+MSG_DAILY_REWARD_ALREADY_CLAIMED = "Ежедневная награда уже была получена сегодня"
 
 HEADERS = {
   'accept': 'application/json, text/plain, */*',
