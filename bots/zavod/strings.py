@@ -35,7 +35,6 @@ MSG_GAME_START = 'Начали играть'
 
 
 HEADERS = {
-
   'authority': 'zavod-api.mdaowallet.com',
   'accept': 'application/json, text/plain, */*',
   'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,cy;q=0.6',
@@ -44,13 +43,14 @@ HEADERS = {
   'pragma': 'no-cache',
   'referer': 'https://zavod.mdaowallet.com/',
   'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
-  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-mobile': '?1',
   'sec-ch-ua-platform': '"Linux"',
   'sec-fetch-dest': 'empty',
   'sec-fetch-mode': 'cors',
   'sec-fetch-site': 'same-site',
-  'telegram-init-data': '',
-  'user-agent': '',
+  'user-agent': 'Mozilla/5.0 (Linux; Android 9; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36 Telegram-Android/11.2.3 (Samsung SM-G973N; Android 9; SDK 28; LOW)',
+  'x-requested-with': 'org.telegram.messenger.web',
+  'accept-encoding': 'gzip, deflate, br'
 }
 
 
