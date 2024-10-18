@@ -1,7 +1,6 @@
 # BotFarmFactory
 Небольшой "фрейемворк" для создания ферм по прокачке телеграм "тапалок"
 
-ДЛЯ ДОНАТОВ
 Для донатов:  
 Metamask (ETH/BNB/TRX/ARB/OP): 0xd0d94B12738E627441878710FB9520f18A33B019  
 SOL: GfpbfYZxsVrC3qx9S5KAtiZby5BxX3tF9wDQBAYVFfxR  
