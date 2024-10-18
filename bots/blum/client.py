@@ -219,5 +219,5 @@ class BotFarmer(BaseFarmer):
         self.update_balance(log_info=True)
         self.start_farming()
         self.check_tasks()
-        self.play_game()
+        #self.play_game()
         
