@@ -96,20 +96,22 @@ class BotFarmer(BaseFarmer):
         if response := self.get(URL_INFO):
             self.info = response['data']
 
-    def claim_daily_reward(self):
-        today = datetime.datetime.utcnow().date()
-        last_reward_date = datetime.datetime.strptime(self.info['lastDailyRewardDate'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
-        
-        if last_reward_date != today:
-            if response := self.get(URL_DAILY_REWARD):
-                updated_balance = response['data']['updatedBalance']
-                self.info['balance'] = updated_balance
-                self.info['lastDailyRewardDate'] = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S.%fZ")
-                self.log(MSG_DAILY_REWARD_CLAIMED.format(balance=updated_balance))
+            current_date = datetime.datetime.utcnow().date()
+            last_daily_reward_date = datetime.datetime.strptime(self.info['lastDailyRewardDate'], "%Y-%m-%dT%H:%M:%S.%fZ").date()
+            if last_daily_reward_date != current_date:
+                self.claim_daily_reward()
             else:
-                self.log(MSG_DAILY_REWARD_ERROR)
+                self.log(MSG_DAILY_REWARD_ALREADY_CLAIMED)
+
+    def claim_daily_reward(self):
+        if response := self.get(URL_DAILY_REWARD):
+            updated_balance = response['data']['updatedBalance']
+            self.info['balance'] = updated_balance
+            self.log(MSG_DAILY_REWARD_CLAIMED.format(balance=updated_balance))
+            self.info['dailyStreak'] += 1
+            self.log(f"Daily Streak: {self.info['dailyStreak']}")
         else:
-            self.log(MSG_DAILY_REWARD_ALREADY_CLAIMED)
+            self.log(MSG_DAILY_REWARD_ERROR)
 
     def update_tasks(self):
         if response := self.get(URL_TASKS):
@@ -172,11 +174,9 @@ class BotFarmer(BaseFarmer):
 
     def farm(self):
         self.sync()
-        self.claim_daily_reward()
         self.select_exchange()
         self.claim_or_farm()
         self.check_tasks()
         self.watch_ad()
-        self.sync()
         self.log(MSG_BALANCE.format(balance=self.balance))
 
